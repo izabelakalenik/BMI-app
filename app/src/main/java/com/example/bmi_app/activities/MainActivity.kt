@@ -1,13 +1,17 @@
-package com.example.bmi_app
+package com.example.bmi_app.activities
 
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.bmi_app.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +20,33 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inputW: EditText
     private lateinit var resultBMI: TextView
     private lateinit var buttonBMI: Button
+    private lateinit var unitSpinner: Spinner
+    private var isMetricUnits = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         createVars()
+
+        unitSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(
+            parent: AdapterView<*>?,
+            view: View?,
+            position: Int,
+            id: Long
+        ) {
+            isMetricUnits =
+                position == 0 // Jeśli wybrano "Metric", użyj jednostek metrycznych, w przeciwnym razie jednostek imperialnych
+            // Wyczyść pola wprowadzania
+            inputH.text.clear()
+            inputW.text.clear()
+        }
+
+        override fun onNothingSelected(parent: AdapterView<*>?) {
+            // Nie rób nic
+            }
+        }
 
         buttonBMI.setOnClickListener {
             runBMI()
@@ -38,6 +63,12 @@ class MainActivity : AppCompatActivity() {
         inputW = findViewById(R.id.inputW)
         resultBMI = findViewById(R.id.resultBMI)
         buttonBMI = findViewById(R.id.buttonBMI)
+        unitSpinner = findViewById(R.id.unitSpinner)
+
+    }
+
+    private fun changeMetric(){
+
     }
 
     private fun runBMI(){
@@ -45,8 +76,17 @@ class MainActivity : AppCompatActivity() {
         val weightStr = inputW.text.toString()
 
         if (heightStr.isNotEmpty() && weightStr.isNotEmpty()) {
+            val height = heightStr.toDouble()
+            val weight = weightStr.toDouble()
 
-           val calculatedBMI = calculateBMI(heightStr.toDouble(), weightStr.toDouble())
+            val calculatedBMI = if (isMetricUnits) {
+                // Jednostki metryczne
+                calculateMetricBMI(height, weight)
+            } else {
+                // Jednostki imperialne
+                calculateImperialBMI(height, weight)
+            }
+
            displayBMI(calculatedBMI)
         }
         else {
@@ -55,7 +95,11 @@ class MainActivity : AppCompatActivity() {
 
       }
 
-    private fun calculateBMI(heightInCm: Double, weightInKg: Double) : Double {
+    private fun calculateImperialBMI(heightInInches: Double, weightInPounds: Double): Double {
+        return (weightInPounds / (heightInInches * heightInInches)) * 703
+    }
+
+    private fun calculateMetricBMI(heightInCm: Double, weightInKg: Double) : Double {
         val heightInMeters = heightInCm / 100
         return weightInKg / (heightInMeters * heightInMeters)
     }
@@ -110,10 +154,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openResultActivity(){
-        val resultActivity = Intent(this,
-            ResultActivity::class.java)
+        val resultIntent = Intent(this, ResultActivity::class.java)
 
-        startActivity(resultActivity)
+//        resultIntent.putExtra("bmi", )
+//        resultIntent.putExtra("resultText", resultText)
+
+        startActivity(resultIntent)
+
     }
 
 }
