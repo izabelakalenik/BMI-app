@@ -2,8 +2,13 @@
     <string name="app_name">BMI_app</string>
 
     <string name="bmi_app">BMI App</string>
-    <string name="height_label">Height [cm]:</string>
-    <string name="weight_label">Weight [kg]:</string>
+
+    <string name="height_metric_label">Height [cm]:</string>
+    <string name="weight_metric_label">Weight [kg]:</string>
+
+    <string name="height_imperial_label">Height [in]:</string>
+    <string name="weight_imperial_label">Weight [lb]:</string>
+
     <string name="button_bmi">Calculate BMI</string>
     <string name="your_height"> </string>
     <string name="your_weight"> </string>

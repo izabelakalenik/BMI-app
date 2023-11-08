@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="120dp"
-        android:text="@string/height_label"
+        android:text="@string/height_metric_label"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleBMI" />
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="@string/weight_label"
+        android:text="@string/weight_metric_label"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/labelH"
         app:layout_constraintTop_toBottomOf="@+id/labelH" />

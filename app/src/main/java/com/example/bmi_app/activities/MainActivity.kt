@@ -18,6 +18,8 @@ import com.example.bmi_app.units.Metric
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var labelH: TextView
+    private lateinit var labelW: TextView
     private lateinit var inputH: EditText
     private lateinit var inputW: EditText
     private lateinit var resultBMI: TextView
@@ -44,6 +46,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createVars(){
+        labelH = findViewById(R.id.labelH)
+        labelW = findViewById(R.id.labelW)
         inputH = findViewById(R.id.inputH)
         inputW = findViewById(R.id.inputW)
         resultBMI = findViewById(R.id.resultBMI)
@@ -62,6 +66,8 @@ class MainActivity : AppCompatActivity() {
             ) {
                 isMetricUnits =
                     position == 0 // Jeśli wybrano "Metric", użyj jednostek metrycznych, w przeciwnym razie jednostek imperialnych
+                labelH.text = getString(R.string.height_imperial_label)
+                labelW.text = getString(R.string.weight_imperial_label)
                 // Wyczyść pola wprowadzania
                 inputH.text.clear()
                 inputW.text.clear()
