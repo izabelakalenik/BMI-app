@@ -25,11 +25,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="60dp"
         android:text="@string/height_metric_label"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBMI" />
+        app:layout_constraintTop_toBottomOf="@+id/unitSpinner" />
 
     <TextView
         android:id="@+id/labelW"
@@ -56,41 +56,43 @@
 
     <EditText
         android:id="@+id/inputH"
-        android:hint="@string/your_weight"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginStart="30dp"
+        android:autofillHints="height"
         android:ems="6"
+        android:hint="@string/your_weight"
         android:inputType="numberDecimal"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/labelH"
         app:layout_constraintStart_toEndOf="@+id/labelH"
         app:layout_constraintTop_toTopOf="@+id/labelH"
-        tools:text="170"
-        android:autofillHints="height" />
+        tools:text="170" />
 
     <EditText
         android:id="@+id/inputW"
-        android:hint="@string/your_weight"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginStart="30dp"
+        android:autofillHints="weight"
         android:ems="6"
+        android:hint="@string/your_weight"
         android:inputType="numberDecimal"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/labelW"
         app:layout_constraintStart_toEndOf="@+id/labelW"
         app:layout_constraintTop_toTopOf="@+id/labelW"
-        tools:text="55"
-        android:autofillHints="weight"/>
+        tools:text="55" />
 
     <TextView
         android:id="@+id/resultBMI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonBMI"
+        app:layout_constraintStart_toStartOf="@+id/buttonBMI"
         app:layout_constraintTop_toBottomOf="@+id/buttonBMI"
         app:layout_constraintVertical_bias="0.15"
         tools:text="155" />
@@ -98,12 +100,27 @@
     <Spinner
         android:id="@+id/unitSpinner"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
+        android:layout_height="60dp"
         android:layout_marginTop="40dp"
         android:entries="@array/unit_options"
+        app:layout_constraintEnd_toEndOf="@+id/titleBMI"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/titleBMI"
+        app:layout_constraintTop_toBottomOf="@+id/titleBMI" />
+
+    <TextView
+        android:id="@+id/resultTextBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/bmi_result_text"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBMI" />
+        app:layout_constraintTop_toBottomOf="@+id/resultBMI"
+        app:layout_constraintVertical_bias="0.133"
+        tools:text="Result text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

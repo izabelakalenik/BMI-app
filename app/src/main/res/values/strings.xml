@@ -13,7 +13,7 @@
     <string name="your_height"> </string>
     <string name="your_weight"> </string>
 
-    <string name="bmi_result">Your BMI: %s</string>
+    <string name="bmi_result_text"> </string>
     <string name="input_error">Enter proper values of height and weight!</string>
 
     <string-array name="unit_options">
