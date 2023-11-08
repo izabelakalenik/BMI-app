@@ -201,8 +201,9 @@ class MainActivity : AppCompatActivity() {
     private fun openResultActivity(){
         val resultIntent = Intent(this, ResultActivity::class.java)
 
-//        resultIntent.putExtra("bmi", resultBMI.text)
-//        resultIntent.putExtra("resultText", resultTextBMI.text)
+        resultIntent.putExtra("bmi", resultBMI.text)
+        resultIntent.putExtra("resultText", resultTextBMI.text)
+        resultIntent.putExtra("color", resultBMI.currentTextColor)
 
         startActivity(resultIntent)
 

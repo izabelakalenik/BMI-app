@@ -21,4 +21,8 @@
         <item>Imperial [lb, in]</item>
     </string-array>
 
+    <string name="bmi_label">BMI:</string>
+    <string name="bmi_result"> </string>
+    <string name="bmi_description"> </string>
+
 </resources>
