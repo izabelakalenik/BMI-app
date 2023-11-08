@@ -2,6 +2,8 @@ package com.example.bmi_app.activities
 
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -14,7 +16,6 @@ import androidx.core.content.ContextCompat
 import com.example.bmi_app.R
 import com.example.bmi_app.units.Imperial
 import com.example.bmi_app.units.Metric
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +39,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         createVars()
+        // Pobierz aktualną orientację urządzenia
+        val currentOrientation = resources.configuration.orientation
+
+        // Ustaw orientację ekranu w zależności od aktualnej orientacji urządzenia
+        requestedOrientation = if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        } else {
+            ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+        }
 
         unitSpinner.onItemSelectedListener = createOnItemSelectedListener()
 
@@ -48,8 +58,22 @@ class MainActivity : AppCompatActivity() {
         resultBMI.setOnClickListener {
             openResultActivity()
         }
-
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("inputH", inputH.text.toString())
+        outState.putString("inputW", inputW.text.toString())
+        outState.putInt("resultTextColor", resultBMI.currentTextColor)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        inputH.setText(savedInstanceState.getString("inputH"))
+        inputW.setText(savedInstanceState.getString("inputW"))
+        resultBMI.setTextColor(savedInstanceState.getInt("resultTextColor"))
+    }
+
 
     private fun createVars(){
         labelH = findViewById(R.id.labelH)

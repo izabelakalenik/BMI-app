@@ -17,8 +17,8 @@
     <string name="input_error">Enter proper values of height and weight!</string>
 
     <string-array name="unit_options">
-        <item>Metric (kg, m)</item>
-        <item>Imperial (lb, ft)</item>
+        <item>Metric [kg, cm]</item>
+        <item>Imperial [lb, in]</item>
     </string-array>
 
 </resources>
