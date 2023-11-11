@@ -26,9 +26,10 @@
         android:layout_height="@dimen/text_view_height"
         android:layout_marginTop="50dp"
         android:entries="@array/unit_options"
-        app:layout_constraintEnd_toEndOf="@+id/titleBMI"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/titleBMI"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.574"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleBMI" />
 
     <TextView

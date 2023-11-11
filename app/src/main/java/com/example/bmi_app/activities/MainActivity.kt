@@ -12,10 +12,10 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.example.bmi_app.R
 import com.example.bmi_app.units.Imperial
 import com.example.bmi_app.units.Metric
+
 
 
 
@@ -42,11 +42,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         createVars()
-
-        val popupTheme = R.style.AppTheme_PopupMenu
-        toolbar.popupTheme = popupTheme
-
-        setSupportActionBar(toolbar)
+        setActionBar()
 
         unitSpinner.onItemSelectedListener = createOnItemSelectedListener()
 
@@ -76,25 +72,35 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun setActionBar(){
+        val popupTheme = R.style.AppTheme_PopupMenu
+        toolbar.popupTheme = popupTheme
+
+        setSupportActionBar(toolbar)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.action_menu_item -> {
-                return true
+                true
             }
+
             R.id.menu_history -> {
                 openNewScreen(HistoryActivity::class.java)
-                return true
+                true
             }
+
             R.id.menu_author -> {
                 openNewScreen(AuthorActivity::class.java)
-                return true
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -102,7 +108,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, activity)
         startActivity(intent)
     }
-
 
     private fun createOnItemSelectedListener(): AdapterView.OnItemSelectedListener {
         return object : AdapterView.OnItemSelectedListener {
@@ -159,8 +164,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayBMI(bmi: Double){
 
-        val color = getColor(bmi)
-        val resultText = getResultText(bmi)
+        val color = getColor(this, bmi)
+        val resultText = getResultText(this, bmi)
 
         val formattedBMI = String.format("%.2f", bmi)
 
@@ -170,42 +175,6 @@ class MainActivity : AppCompatActivity() {
         resultTextBMI.setTextColor(color)
         resultTextBMI.text = resultText
 
-    }
-
-    private fun getResultText(bmi: Double) : String{
-        val resultText = when {
-            bmi < 16.0 -> getString(R.string.underweight_label)
-            bmi in (16.0..16.99) -> getString(R.string.severe_thinness_label)
-            bmi in (17.0..18.49) -> getString(R.string.mild_thinness_label)
-            bmi in (18.5..24.99) -> getString(R.string.normal_weight_label)
-            bmi in (25.0..29.9) -> getString(R.string.overweight_label)
-            bmi in (30.0..34.99) -> getString(R.string.obesity_I_label)
-            bmi in (35.0..39.99) -> getString(R.string.obesity_II_label)
-            else -> getString(R.string.obesity_III_label)
-        }
-        return resultText
-    }
-    private fun getColor(bmi: Double) : Int {
-
-        val color = when {
-            bmi < 16.0 -> ContextCompat.getColor(this, R.color.red)
-            bmi in (16.0..16.99) ->
-                ContextCompat.getColor(this, R.color.orange)
-            bmi in (17.0..18.49) ->
-                ContextCompat.getColor(this, R.color.yellow)
-            bmi in (18.5..24.99) ->
-                ContextCompat.getColor(this, R.color.green)
-            bmi in (25.0..29.9) ->
-                ContextCompat.getColor(this, R.color.orange)
-            bmi in (30.0..34.99) ->
-                ContextCompat.getColor(this, R.color.red)
-            bmi in (35.0..39.99) ->
-                ContextCompat.getColor(this, R.color.red)
-            else ->
-                ContextCompat.getColor(this, R.color.red)
-        }
-
-        return color
     }
 
     private fun openResultActivity(){

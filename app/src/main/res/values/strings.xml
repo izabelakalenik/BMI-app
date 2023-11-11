@@ -28,21 +28,15 @@
     <string name="bmi_description"> </string>
 
 <!-- WEIGHT DESCRIPTIONS -->
-    <string name="underweight_label">Underweight</string>
     <string name="severe_thinness_label">Severe Thinness</string>
     <string name="mild_thinness_label">Mild Thinness</string>
+    <string name="underweight_label">Underweight</string>
     <string name="normal_weight_label">Normal Weight</string>
     <string name="overweight_label">Overweight</string>
     <string name="obesity_I_label">Obesity Class I</string>
     <string name="obesity_II_label">Obesity Class II</string>
     <string name="obesity_III_label">Obesity Class III\n(Morbidly Obese)</string>
 
-    <string name="underweight">[BMI less than 18.5]:\n
-        Underweight individuals have a body weight that is below the
-        recommended range for their height and age.It may indicate inadequate
-        caloric intake or underlying health issues. Health risks can include
-        nutrient deficiencies, weakened immune system, and difficulty
-        maintaining body functions.</string>
 
     <string name="severe_thinness">[BMI less than 16]:\n
         Severe thinness represents a critical level of underweight,
@@ -57,6 +51,13 @@
         While not as critical as severe thinness, it can still lead
         to health issues if not addressed, such as decreased energy levels
         and potential nutrient deficiencies.</string>
+
+    <string name="underweight">[BMI 17 - 18.4]:\n
+        Underweight individuals have a body weight that is below the
+        recommended range for their height and age.It may indicate inadequate
+        caloric intake or underlying health issues. Health risks can include
+        nutrient deficiencies, weakened immune system, and difficulty
+        maintaining body functions.</string>
 
     <string name="normal_weight">[BMI 18.5 - 24.9]:\n
         Falling within the normal weight range indicates

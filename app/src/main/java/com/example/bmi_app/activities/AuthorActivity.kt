@@ -17,7 +17,7 @@ class AuthorActivity : AppCompatActivity() {
         createVars()
 
         buttonFacts.setOnClickListener {
-            getFacts()
+            displayFacts()
         }
     }
 
@@ -26,18 +26,9 @@ class AuthorActivity : AppCompatActivity() {
         authorDescription = findViewById(R.id.authorDescription)
     }
 
-    private fun getFacts(){
-        val random = kotlin.random.Random
 
-        when (random.nextInt(1, 8)) {
-            1 -> authorDescription.text = getString(R.string.fact_1)
-            2 -> authorDescription.text = getString(R.string.fact_2)
-            3 -> authorDescription.text = getString(R.string.fact_3)
-            4 -> authorDescription.text = getString(R.string.fact_4)
-            5 -> authorDescription.text = getString(R.string.fact_5)
-            6 -> authorDescription.text = getString(R.string.fact_6)
-            7 -> authorDescription.text = getString(R.string.fact_7)
-        }
-
+    private fun displayFacts(){
+        authorDescription.text = getFact(this)
     }
+
 }
