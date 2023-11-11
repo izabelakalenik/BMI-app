@@ -25,4 +25,85 @@
     <string name="bmi_result"> </string>
     <string name="bmi_description"> </string>
 
+<!-- WEIGHT DESCRIPTIONS-->
+    <string name="underweight_label">Underweight</string>
+    <string name="severe_thinness_label">Severe Thinness</string>
+    <string name="mild_thinness_label">Mild Thinness</string>
+    <string name="normal_weight_label">Normal Weight</string>
+    <string name="overweight_label">Overweight</string>
+    <string name="obesity_I_label">Obesity Class I</string>
+    <string name="obesity_II_label">Obesity Class II</string>
+    <string name="obesity_III_label">Obesity Class III\n(Morbidly Obese)</string>
+
+    <string name="underweight">[BMI less than 18.5]:\n
+        Underweight individuals have a body weight that is below the
+        recommended range for their height and age.It may indicate inadequate
+        caloric intake or underlying health issues. Health risks can include
+        nutrient deficiencies, weakened immune system, and difficulty
+        maintaining body functions.</string>
+
+    <string name="severe_thinness">[BMI less than 16]:\n
+        Severe thinness represents a critical level of underweight,
+        often indicating a severe lack of nutrition.
+        Individuals in this category are at significant risk of
+        malnutrition-related health complications, such as organ
+        dysfunction and weakened immunity.</string>
+
+    <string name="mild_thinness">[BMI 16 - 16.9]:\n
+        Mild thinness suggests a slight underweight condition,
+        requiring attention to maintain a balanced diet.
+        While not as critical as severe thinness, it can still lead
+        to health issues if not addressed, such as decreased energy levels
+        and potential nutrient deficiencies.</string>
+
+    <string name="normal_weight">[BMI 18.5 - 24.9]:\n
+        Falling within the normal weight range indicates
+        a balanced weight relative to one\'s height and age.
+        Individuals in this category generally have a lower risk
+        of weight-related health problems and are
+        often considered to be in good overall health.</string>
+
+    <string name="overweight"> [BMI 25 - 29.9]:\n
+        Overweight individuals have excess body weight
+        for their height, which can increase the risk of
+        various health conditions, including hypertension and type 2 diabetes.
+        It\'s important to maintain a healthy lifestyle and diet to manage
+        weight and reduce associated health risks.</string>
+
+    <string name="obesity_I">[BMI 30 - 34.9]:\n
+        Class I obesity is characterized by a moderately high BMI,
+        increasing the risk of conditions such as
+        high blood pressure and heart disease. Weight management,
+        including dietary changes and increased physical activity,
+        is essential for reducing health risks.</string>
+
+    <string name="obesity_II">[BMI 35 - 39.9]:\n
+        Class II obesity represents a more severe form of obesity,
+        with a significantly elevated BMI. Individuals in this category
+        face a higher risk of serious health problems and may benefit
+        from medical intervention, such as weight loss surgery.</string>
+
+    <string name="obesity_III">[BMI 40 or higher]:\n
+        Morbid obesity is the most extreme level of obesity,
+        posing a critical risk to health. Individuals with a BMI of 40
+        or higher are at significant risk for conditions like heart disease,
+        sleep apnea, and joint issues, often necessitating
+        medical treatment for weight management.</string>
+
+
+<!--AUTHOR DESCRIPTION-->
+
+    <string name="author_photo_desc">Photo of an app author</string>
+    <string name="about_author">About author</string>
+    <string name="facts_label">Pick a fact about author</string>
+    <string name="button_facts">Click!</string>
+
+    <string name="fact_1">I\'m a student of Computer Science.</string>
+    <string name="fact_2">I like listening to techno music.</string>
+    <string name="fact_3">I\'m a sailing instructor.</string>
+    <string name="fact_4">I really like cats.</string>
+    <string name="fact_5">I\'m 21 years old.</string>
+    <string name="fact_6">I have been training track and field for 6 years.</string>
+    <string name="fact_7">My hobbies are: djing, sport and reading comics.</string>
+
 </resources>

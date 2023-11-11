@@ -164,14 +164,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun getResultText(bmi: Double) : String{
         val resultText = when {
-            bmi < 16.0 -> "Underweight"
-            bmi in (16.0..16.99) -> "Severe Thinness"
-            bmi in (17.0..18.49) -> "Mild Thinness"
-            bmi in (18.5..24.99) -> "Normal Weight"
-            bmi in (25.0..29.9) -> "Overweight"
-            bmi in (30.0..34.99) -> "Obesity Class I"
-            bmi in (35.0..39.99) -> "Obesity Class II"
-            else -> "Obesity Class III (Morbidly Obese)"
+            bmi < 16.0 -> getString(R.string.underweight_label)
+            bmi in (16.0..16.99) -> getString(R.string.severe_thinness_label)
+            bmi in (17.0..18.49) -> getString(R.string.mild_thinness_label)
+            bmi in (18.5..24.99) -> getString(R.string.normal_weight_label)
+            bmi in (25.0..29.9) -> getString(R.string.overweight_label)
+            bmi in (30.0..34.99) -> getString(R.string.obesity_I_label)
+            bmi in (35.0..39.99) -> getString(R.string.obesity_II_label)
+            else -> getString(R.string.obesity_III_label)
         }
         return resultText
     }

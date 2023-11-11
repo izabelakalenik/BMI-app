@@ -110,16 +110,18 @@
 
     <TextView
         android:id="@+id/resultTextBMI"
-        android:layout_width="wrap_content"
+        android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:text="@string/bmi_result_text"
+        android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultBMI"
-        app:layout_constraintVertical_bias="0.133"
+        app:layout_constraintVertical_bias="0.029"
         tools:text="Result text" />
 
 
