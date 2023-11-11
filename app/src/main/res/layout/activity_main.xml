@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/bmi_app"
+        android:text="@string/bmi_title_label"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.103" />
 
     <TextView
         android:id="@+id/labelH"
@@ -101,10 +101,10 @@
         android:id="@+id/unitSpinner"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:entries="@array/unit_options"
         app:layout_constraintEnd_toEndOf="@+id/titleBMI"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/titleBMI"
         app:layout_constraintTop_toBottomOf="@+id/titleBMI" />
 
@@ -123,6 +123,18 @@
         app:layout_constraintTop_toBottomOf="@+id/resultBMI"
         app:layout_constraintVertical_bias="0.029"
         tools:text="Result text" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

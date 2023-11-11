@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">BMI_app</string>
 
-    <string name="bmi_app">BMI App</string>
+<!-- MAIN ACTIVITY -->
+    <string name="bmi_title_label">BMI App</string>
 
     <string name="height_metric_label">Height [cm]:</string>
     <string name="weight_metric_label">Weight [kg]:</string>
@@ -21,11 +22,12 @@
         <item>Imperial [lb, in]</item>
     </string-array>
 
+<!-- RESULT ACTIVITY -->
     <string name="bmi_label">BMI:</string>
     <string name="bmi_result"> </string>
     <string name="bmi_description"> </string>
 
-<!-- WEIGHT DESCRIPTIONS-->
+<!-- WEIGHT DESCRIPTIONS -->
     <string name="underweight_label">Underweight</string>
     <string name="severe_thinness_label">Severe Thinness</string>
     <string name="mild_thinness_label">Mild Thinness</string>
@@ -92,7 +94,6 @@
 
 
 <!--AUTHOR DESCRIPTION-->
-
     <string name="author_photo_desc">Photo of an app author</string>
     <string name="about_author">About author</string>
     <string name="facts_label">Pick a fact about author</string>
@@ -105,5 +106,10 @@
     <string name="fact_5">I\'m 21 years old.</string>
     <string name="fact_6">I have been training track and field for 6 years.</string>
     <string name="fact_7">My hobbies are: djing, sport and reading comics.</string>
+
+<!--MENU-->
+    <string name="menu">Menu</string>
+    <string name="history">History</string>
+
 
 </resources>

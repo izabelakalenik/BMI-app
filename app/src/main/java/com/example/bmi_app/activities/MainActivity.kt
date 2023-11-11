@@ -1,16 +1,16 @@
 package com.example.bmi_app.activities
 
-
 import android.content.Intent
-import android.content.pm.ActivityInfo
-import android.content.res.Configuration
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.bmi_app.R
@@ -18,7 +18,10 @@ import com.example.bmi_app.units.Imperial
 import com.example.bmi_app.units.Metric
 
 
+
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var toolbar: Toolbar
 
     private lateinit var labelH: TextView
     private lateinit var labelW: TextView
@@ -39,15 +42,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         createVars()
-        // Pobierz aktualną orientację urządzenia
-        val currentOrientation = resources.configuration.orientation
 
-        // Ustaw orientację ekranu w zależności od aktualnej orientacji urządzenia
-        requestedOrientation = if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        } else {
-            ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-        }
+        val popupTheme = R.style.AppTheme_PopupMenu
+        toolbar.popupTheme = popupTheme
+
+        setSupportActionBar(toolbar)
 
         unitSpinner.onItemSelectedListener = createOnItemSelectedListener()
 
@@ -60,22 +59,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString("inputH", inputH.text.toString())
-        outState.putString("inputW", inputW.text.toString())
-        outState.putInt("resultTextColor", resultBMI.currentTextColor)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        inputH.setText(savedInstanceState.getString("inputH"))
-        inputW.setText(savedInstanceState.getString("inputW"))
-        resultBMI.setTextColor(savedInstanceState.getInt("resultTextColor"))
-    }
-
-
     private fun createVars(){
+        toolbar = findViewById(R.id.toolbar)
+
         labelH = findViewById(R.id.labelH)
         labelW = findViewById(R.id.labelW)
 
@@ -90,6 +76,34 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_menu_item -> {
+                return true
+            }
+            R.id.menu_history -> {
+                openNewScreen(HistoryActivity::class.java)
+                return true
+            }
+            R.id.menu_author -> {
+                openNewScreen(AuthorActivity::class.java)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun openNewScreen(activity: Class<*>) {
+        val intent = Intent(this, activity)
+        startActivity(intent)
+    }
+
+
     private fun createOnItemSelectedListener(): AdapterView.OnItemSelectedListener {
         return object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -101,22 +115,18 @@ class MainActivity : AppCompatActivity() {
                 isMetricUnits = position == 0
 
                 if (isMetricUnits) {
-                    // Set the labels to Metric labels
                     labelH.text = getString(R.string.height_metric_label)
                     labelW.text = getString(R.string.weight_metric_label)
                 } else {
-                    // Set the labels to Imperial labels
                     labelH.text = getString(R.string.height_imperial_label)
                     labelW.text = getString(R.string.weight_imperial_label)
                 }
 
-                // Clear the input fields
                 inputH.text.clear()
                 inputW.text.clear()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Do nothing
             }
         }
     }
