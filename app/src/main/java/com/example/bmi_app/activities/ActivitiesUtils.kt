@@ -8,11 +8,11 @@ fun getResultText(context: Context, bmi: Double) : String{
     val resources = context.resources
 
     val resultText = when {
-        bmi < 16.0 -> resources.getString(R.string.underweight_label)
-        bmi in (16.0..16.99) -> resources.getString(R.string.severe_thinness_label)
-        bmi in (17.0..18.49) -> resources.getString(R.string.mild_thinness_label)
+        bmi < 16.0 -> resources.getString(R.string.severe_thinness_label)
+        bmi in (16.0..16.99) -> resources.getString(R.string.mild_thinness_label)
+        bmi in (17.0..18.49) -> resources.getString(R.string.underweight_label)
         bmi in (18.5..24.99) -> resources.getString(R.string.normal_weight_label)
-        bmi in (25.0..29.9) -> resources.getString(R.string.overweight_label)
+        bmi in (25.0..29.99) -> resources.getString(R.string.overweight_label)
         bmi in (30.0..34.99) -> resources.getString(R.string.obesity_I_label)
         bmi in (35.0..39.99) -> resources.getString(R.string.obesity_II_label)
         else -> resources.getString(R.string.obesity_III_label)

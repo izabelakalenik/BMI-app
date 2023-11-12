@@ -9,15 +9,9 @@
 
     <string name="height_metric_label">Height [cm]:</string>
     <string name="weight_metric_label">Weight [kg]:</string>
-    <string name="height_metric">Height [cm]: %1$s</string>
-    <string name="weight_metric">Weight [kg]: %1$s</string>
 
     <string name="height_imperial_label">Height [in]:</string>
     <string name="weight_imperial_label">Weight [lb]:</string>
-    <string name="height_imperial">Height [in]: %1$s</string>
-    <string name="weight_imperial">Weight [lb]: %1$s</string>
-
-    <string name="history_bmi">BMI: %1$s</string>
 
     <string name="button_bmi">Calculate BMI</string>
     <string name="your_height"> </string>
@@ -47,55 +41,55 @@
     <string name="obesity_III_label">Obesity Class III\n(Morbidly Obese)</string>
 
 
-    <string name="severe_thinness">[BMI less than 16]:\n
+    <string name="severe_thinness">[BMI less than 16.0]:\n
         Severe thinness represents a critical level of underweight,
         often indicating a severe lack of nutrition.
         Individuals in this category are at significant risk of
         malnutrition-related health complications, such as organ
         dysfunction and weakened immunity.</string>
 
-    <string name="mild_thinness">[BMI 16 - 16.9]:\n
+    <string name="mild_thinness">[BMI 16.0 - 16.99]:\n
         Mild thinness suggests a slight underweight condition,
         requiring attention to maintain a balanced diet.
         While not as critical as severe thinness, it can still lead
         to health issues if not addressed, such as decreased energy levels
         and potential nutrient deficiencies.</string>
 
-    <string name="underweight">[BMI 17 - 18.4]:\n
+    <string name="underweight">[BMI 17.0 - 18.49]:\n
         Underweight individuals have a body weight that is below the
         recommended range for their height and age.It may indicate inadequate
         caloric intake or underlying health issues. Health risks can include
         nutrient deficiencies, weakened immune system, and difficulty
         maintaining body functions.</string>
 
-    <string name="normal_weight">[BMI 18.5 - 24.9]:\n
+    <string name="normal_weight">[BMI 18.5 - 24.99]:\n
         Falling within the normal weight range indicates
         a balanced weight relative to one\'s height and age.
         Individuals in this category generally have a lower risk
         of weight-related health problems and are
         often considered to be in good overall health.</string>
 
-    <string name="overweight"> [BMI 25 - 29.9]:\n
+    <string name="overweight"> [BMI 25.0 - 29.99]:\n
         Overweight individuals have excess body weight
         for their height, which can increase the risk of
         various health conditions, including hypertension and type 2 diabetes.
         It\'s important to maintain a healthy lifestyle and diet to manage
         weight and reduce associated health risks.</string>
 
-    <string name="obesity_I">[BMI 30 - 34.9]:\n
+    <string name="obesity_I">[BMI 30.0 - 34.99]:\n
         Class I obesity is characterized by a moderately high BMI,
         increasing the risk of conditions such as
         high blood pressure and heart disease. Weight management,
         including dietary changes and increased physical activity,
         is essential for reducing health risks.</string>
 
-    <string name="obesity_II">[BMI 35 - 39.9]:\n
+    <string name="obesity_II">[BMI 35.0 - 39.99]:\n
         Class II obesity represents a more severe form of obesity,
         with a significantly elevated BMI. Individuals in this category
         face a higher risk of serious health problems and may benefit
         from medical intervention, such as weight loss surgery.</string>
 
-    <string name="obesity_III">[BMI 40 or higher]:\n
+    <string name="obesity_III">[BMI 40.0 or higher]:\n
         Morbid obesity is the most extreme level of obesity,
         posing a critical risk to health. Individuals with a BMI of 40
         or higher are at significant risk for conditions like heart disease,
@@ -121,5 +115,15 @@
     <string name="menu">Menu</string>
     <string name="history">History</string>
 
+<!-- HISTORY -->
+    <string name="bmi_history_name">BMI_HISTORY</string>
+
+    <string name="height_metric">Height [cm]: %1$s</string>
+    <string name="weight_metric">Weight [kg]: %1$s</string>
+
+    <string name="height_imperial">Height [in]: %1$s</string>
+    <string name="weight_imperial">Weight [lb]: %1$s</string>
+
+    <string name="history_bmi">BMI: %1$s</string>
 
 </resources>
