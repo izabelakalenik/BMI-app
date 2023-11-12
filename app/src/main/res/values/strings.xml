@@ -4,11 +4,20 @@
 <!-- MAIN ACTIVITY -->
     <string name="bmi_title_label">BMI App</string>
 
+    <string name="metric">metric</string>
+    <string name="imperial">imperial</string>
+
     <string name="height_metric_label">Height [cm]:</string>
     <string name="weight_metric_label">Weight [kg]:</string>
+    <string name="height_metric">Height [cm]: %1$s</string>
+    <string name="weight_metric">Weight [kg]: %1$s</string>
 
     <string name="height_imperial_label">Height [in]:</string>
     <string name="weight_imperial_label">Weight [lb]:</string>
+    <string name="height_imperial">Height [in]: %1$s</string>
+    <string name="weight_imperial">Weight [lb]: %1$s</string>
+
+    <string name="history_bmi">BMI: %1$s</string>
 
     <string name="button_bmi">Calculate BMI</string>
     <string name="your_height"> </string>
@@ -23,7 +32,7 @@
     </string-array>
 
 <!-- RESULT ACTIVITY -->
-    <string name="bmi_label">BMI:</string>
+    <string name="bmi_label">BMI: </string>
     <string name="bmi_result"> </string>
     <string name="bmi_description"> </string>
 

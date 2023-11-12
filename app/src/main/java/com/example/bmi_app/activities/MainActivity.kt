@@ -1,5 +1,4 @@
 package com.example.bmi_app.activities
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -13,11 +12,11 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bmi_app.R
+import com.example.bmi_app.ResultBMI
+import com.example.bmi_app.history.currentDateAsString
+import com.example.bmi_app.history.saveBMIResult
 import com.example.bmi_app.units.Imperial
 import com.example.bmi_app.units.Metric
-
-
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -145,16 +144,28 @@ class MainActivity : AppCompatActivity() {
             val height = heightStr.toDouble()
             val weight = weightStr.toDouble()
 
-            val calculatedBMI = if (isMetricUnits) {
-                val metricInstance = Metric(height, weight)
-                metricInstance.calculateBMI()
+            val units : String
+            val calculatedBMI : Double
+
+            if (isMetricUnits) {
+                units = getString(R.string.metric)
+                calculatedBMI = Metric(height, weight).calculateBMI()
 
             } else {
-                val imperialInstance = Imperial(height, weight)
-                imperialInstance.calculateBMI()
+                units = getString(R.string.imperial)
+                calculatedBMI = Imperial(height, weight).calculateBMI()
             }
 
-           displayBMI(calculatedBMI)
+            val bmiResult = ResultBMI(
+                currentDateAsString(),
+                height,
+                weight,
+                units,
+                calculatedBMI
+            )
+            saveBMIResult(this, bmiResult)
+
+            displayBMI(calculatedBMI)
         }
         else {
             resultBMI.text = getString(R.string.input_error)
