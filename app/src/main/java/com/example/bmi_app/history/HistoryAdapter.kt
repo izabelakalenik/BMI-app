@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bmi_app.R
-import com.example.bmi_app.ResultBMI
 import com.example.bmi_app.activities.getColor
 
 class HistoryAdapter(private val bmiResults: List<ResultBMI>, private val context: Context) : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {

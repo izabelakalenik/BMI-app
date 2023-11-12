@@ -1,6 +1,5 @@
 package com.example.bmi_app.history
 import android.content.Context
-import com.example.bmi_app.ResultBMI
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.text.SimpleDateFormat
@@ -9,6 +8,7 @@ import java.util.Locale
 
 const val CONST_NAME = "BMI_HISTORY"
 const val CONST_KEY = "BMI_HISTORY_LIST"
+
 
 fun currentDateAsString(): String {
     val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())

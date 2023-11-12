@@ -1,4 +1,6 @@
 package com.example.bmi_app.activities
+import com.example.bmi_app.view_model.ViewModelBMI
+import com.example.bmi_app.view_model.ViewModelBMIUiState
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -9,14 +11,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.bmi_app.R
-import com.example.bmi_app.ResultBMI
-import com.example.bmi_app.history.currentDateAsString
-import com.example.bmi_app.history.saveBMIResult
-import com.example.bmi_app.units.Imperial
-import com.example.bmi_app.units.Metric
+import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,13 +43,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        val viewModel: ViewModelBMI by viewModels()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect {uiState ->
+                    uiState.bmi
+                    uiState.resultText
+                    uiState.color
+                    uiState.isMetricUnits
+                    if(viewModel.uiState.value.bmi != null) {
+                        displayBMI(viewModel.uiState.value)
+                    }
+                }
+            }
+        }
+
         createVars()
         setActionBar()
 
         unitSpinner.onItemSelectedListener = createOnItemSelectedListener()
 
         buttonBMI.setOnClickListener {
-            runBMI()
+            updateBMI(viewModel)
+            displayBMI(viewModel.uiState.value)
+
         }
 
         resultBMI.setOnClickListener {
@@ -88,17 +109,14 @@ class MainActivity : AppCompatActivity() {
             R.id.action_menu_item -> {
                 true
             }
-
             R.id.menu_history -> {
                 openNewScreen(HistoryActivity::class.java)
                 true
             }
-
             R.id.menu_author -> {
                 openNewScreen(AuthorActivity::class.java)
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -134,59 +152,25 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private fun displayBMI(uiState: ViewModelBMIUiState){
 
+        val formattedBMI = String.format("%.2f", uiState.bmi)
 
-    private fun runBMI(){
-        val heightStr = inputH.text.toString()
-        val weightStr = inputW.text.toString()
+        resultBMI.setTextColor(uiState.color)
+        resultBMI.text = formattedBMI
 
-        if (heightStr.isNotEmpty() && weightStr.isNotEmpty()) {
-            val height = heightStr.toDouble()
-            val weight = weightStr.toDouble()
+        resultTextBMI.setTextColor(uiState.color)
+        resultTextBMI.text = uiState.resultText
 
-            val units : String
-            val calculatedBMI : Double
-
-            if (isMetricUnits) {
-                units = getString(R.string.metric)
-                calculatedBMI = Metric(height, weight).calculateBMI()
-
-            } else {
-                units = getString(R.string.imperial)
-                calculatedBMI = Imperial(height, weight).calculateBMI()
-            }
-
-            val bmiResult = ResultBMI(
-                currentDateAsString(),
-                height,
-                weight,
-                units,
-                calculatedBMI
-            )
-            saveBMIResult(this, bmiResult)
-
-            displayBMI(calculatedBMI)
-        }
-        else {
-            resultBMI.text = getString(R.string.input_error)
-        }
-      }
-
-
-    private fun displayBMI(bmi: Double){
-
+    }
+    private fun updateBMI(viewModel: ViewModelBMI){
+        val bmi = getBMI(this, inputH.text.toString(), inputW.text.toString(), isMetricUnits)
         val color = getColor(this, bmi)
         val resultText = getResultText(this, bmi)
 
-        val formattedBMI = String.format("%.2f", bmi)
-
-        resultBMI.setTextColor(color)
-        resultBMI.text = formattedBMI
-
-        resultTextBMI.setTextColor(color)
-        resultTextBMI.text = resultText
-
+        viewModel.update(bmi, resultText, color, isMetricUnits)
     }
+
 
     private fun openResultActivity(){
         val resultIntent = Intent(this, ResultActivity::class.java)

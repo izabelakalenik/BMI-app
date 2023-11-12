@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <TextView
+        android:id="@+id/titleBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_top"
+        android:text="@string/bmi_title_label"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.21" />
+
+    <Spinner
+        android:id="@+id/unitSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:layout_marginTop="8dp"
+        android:entries="@array/unit_options"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBMI" />
+
+    <TextView
+        android:id="@+id/labelH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/height_metric_label"
+        android:textSize="@dimen/input_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unitSpinner" />
+
+    <EditText
+        android:id="@+id/inputH"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:layout_marginStart="24dp"
+        android:autofillHints="height"
+        android:ems="6"
+        android:hint="@string/your_weight"
+        android:inputType="numberDecimal"
+        android:textSize="@dimen/input_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/labelH"
+        app:layout_constraintStart_toEndOf="@+id/labelH"
+        app:layout_constraintTop_toTopOf="@+id/labelH"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="170" />
+
+    <EditText
+        android:id="@+id/inputW"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:layout_marginStart="28dp"
+        android:autofillHints="weight"
+        android:ems="6"
+        android:hint="@string/your_weight"
+        android:inputType="numberDecimal"
+        android:textSize="@dimen/input_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/labelW"
+        app:layout_constraintStart_toEndOf="@+id/labelW"
+        app:layout_constraintTop_toTopOf="@+id/labelW"
+        app:layout_constraintVertical_bias="0.454"
+        tools:text="55" />
+
+    <TextView
+        android:id="@+id/labelW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/weight_metric_label"
+        android:textSize="@dimen/input_text_size"
+        app:layout_constraintEnd_toEndOf="@+id/labelH"
+        app:layout_constraintTop_toBottomOf="@+id/labelH" />
+
+    <Button
+        android:id="@+id/buttonBMI"
+        android:layout_width="87dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="320dp"
+        android:text="@string/button_bmi"
+        android:textSize="@dimen/input_text_size"
+        app:iconSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/inputW"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBMI"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/resultBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_big"
+        app:layout_constraintBottom_toTopOf="@+id/resultTextBMI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/inputH"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.5"
+        tools:text="155" />
+
+    <TextView
+        android:id="@+id/resultTextBMI"
+        android:layout_width="@dimen/text_view_width"
+        android:layout_height="wrap_content"
+        android:text="@string/bmi_result_text"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inputW"
+        app:layout_constraintTop_toBottomOf="@+id/resultBMI"
+        app:layout_constraintVertical_bias="0.5"
+        tools:text="Result text" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="4dp"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
