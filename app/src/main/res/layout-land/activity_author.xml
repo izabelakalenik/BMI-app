@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/margin_bottom"
+    tools:context=".activities.AuthorActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".activities.AuthorActivity">
+
+        <TextView
+            android:id="@+id/aboutAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_top"
+            android:text="@string/about_author"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.058" />
+
+        <ImageView
+            android:id="@+id/authorPhoto"
+            android:layout_width="261dp"
+            android:layout_height="258dp"
+            android:layout_marginTop="@dimen/margin_space"
+            android:contentDescription="@string/author_photo_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutAuthor"
+            app:srcCompat="@drawable/my_photo" />
+
+        <Button
+            android:id="@+id/buttonFacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/button_facts"
+            app:layout_constraintEnd_toEndOf="@+id/factsLabel"
+            app:layout_constraintStart_toStartOf="@+id/factsLabel"
+            app:layout_constraintTop_toBottomOf="@+id/factsLabel" />
+
+        <TextView
+            android:id="@+id/factsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_space"
+            android:text="@string/facts_label"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="@+id/authorPhoto"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="@+id/authorPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/authorPhoto" />
+
+        <TextView
+            android:id="@+id/authorDescription"
+            android:layout_width="@dimen/text_view_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="@dimen/margin_top_top"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonFacts"
+            tools:text="Facts" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

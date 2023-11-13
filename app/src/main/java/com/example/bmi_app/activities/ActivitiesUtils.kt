@@ -12,10 +12,10 @@ import com.example.bmi_app.units.Metric
 fun getBMI(context: Context, heightStr : String, weightStr : String, isMetricUnits : Boolean) : Double {
     val resources = context.resources
 
-    val height = heightStr.toDouble()
-    val weight = weightStr.toDouble()
-
     if (heightStr.isNotEmpty() && weightStr.isNotEmpty()) {
+        val height = heightStr.toDouble()
+        val weight = weightStr.toDouble()
+
         val units : String
         val calculatedBMI : Double
 
@@ -31,7 +31,7 @@ fun getBMI(context: Context, heightStr : String, weightStr : String, isMetricUni
         createBMIResult(context, height, weight, units, calculatedBMI)
         return calculatedBMI
     }
-    return -1.0
+    return 0.0
 }
 
 fun createBMIResult(context: Context, height: Double, weight: Double, units: String, calculatedBMI: Double){
@@ -43,7 +43,7 @@ fun getResultText(context: Context, bmi: Double) : String{
     val resources = context.resources
 
     val resultText = when {
-        bmi in (0.0..15.99) -> resources.getString(R.string.severe_thinness_label)
+        bmi in (0.01..15.99) -> resources.getString(R.string.severe_thinness_label)
         bmi in (16.0..16.99) -> resources.getString(R.string.mild_thinness_label)
         bmi in (17.0..18.49) -> resources.getString(R.string.underweight_label)
         bmi in (18.5..24.99) -> resources.getString(R.string.normal_weight_label)
