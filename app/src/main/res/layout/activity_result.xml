@@ -24,7 +24,7 @@
         android:id="@+id/resultBMI2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:text="@string/bmi_result"
         android:textSize="@dimen/text_size_big"
         app:layout_constraintEnd_toEndOf="@+id/labelBMI"
@@ -53,14 +53,13 @@
         android:id="@+id/descriptionBMI"
         android:layout_width="@dimen/description_text_width"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space"
         android:text="@string/bmi_description"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/resultInfoBMI"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/resultInfoBMI"
         app:layout_constraintTop_toBottomOf="@+id/resultInfoBMI"
-        app:layout_constraintVertical_bias="0.143"
         tools:text="Description" />
 
 

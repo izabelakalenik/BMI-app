@@ -3,19 +3,55 @@ package com.example.bmi_app.activities
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.example.bmi_app.R
+import com.example.bmi_app.history.ResultBMI
+import com.example.bmi_app.history.currentDateAsString
+import com.example.bmi_app.history.saveBMIResult
+import com.example.bmi_app.units.Imperial
+import com.example.bmi_app.units.Metric
+
+fun getBMI(context: Context, heightStr : String, weightStr : String, isMetricUnits : Boolean) : Double {
+    val resources = context.resources
+
+    if (heightStr.isNotEmpty() && weightStr.isNotEmpty()) {
+        val height = heightStr.toDouble()
+        val weight = weightStr.toDouble()
+
+        val units : String
+        val calculatedBMI : Double
+
+        if (isMetricUnits) {
+            units = resources.getString(R.string.metric)
+            calculatedBMI = Metric(height, weight).calculateBMI()
+
+        } else {
+            units = resources.getString(R.string.imperial)
+            calculatedBMI = Imperial(height, weight).calculateBMI()
+        }
+
+        createBMIResult(context, height, weight, units, calculatedBMI)
+        return calculatedBMI
+    }
+    return 0.0
+}
+
+fun createBMIResult(context: Context, height: Double, weight: Double, units: String, calculatedBMI: Double){
+    val bmiResult =  ResultBMI(currentDateAsString(), height, weight, units, calculatedBMI)
+    saveBMIResult(context, bmiResult)
+}
 
 fun getResultText(context: Context, bmi: Double) : String{
     val resources = context.resources
 
     val resultText = when {
-        bmi < 16.0 -> resources.getString(R.string.severe_thinness_label)
+        bmi in (0.01..15.99) -> resources.getString(R.string.severe_thinness_label)
         bmi in (16.0..16.99) -> resources.getString(R.string.mild_thinness_label)
         bmi in (17.0..18.49) -> resources.getString(R.string.underweight_label)
         bmi in (18.5..24.99) -> resources.getString(R.string.normal_weight_label)
         bmi in (25.0..29.99) -> resources.getString(R.string.overweight_label)
         bmi in (30.0..34.99) -> resources.getString(R.string.obesity_I_label)
         bmi in (35.0..39.99) -> resources.getString(R.string.obesity_II_label)
-        else -> resources.getString(R.string.obesity_III_label)
+        bmi > 40.0 -> resources.getString(R.string.obesity_III_label)
+        else -> resources.getString(R.string.input_error)
     }
     return resultText
 }
