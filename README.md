@@ -1,7 +1,9 @@
 Project for a Mobile applications for Android platform course - 5th semester. 
 
-This is a BMI application, which helps users calculate their own BMI in metric or imperial units. 
-It also gives specific description about calculated BMI value.
-The app contains a menu with history and about author page.
-History is a list of 10 latest BMI values.
+BMI Application is a versatile tool designed to empower users in calculating their Body Mass Index (BMI) effortlessly, whether in metric or imperial units. 
+Beyond the basic calculations, the app provides detailed descriptions corresponding to the calculated BMI values, offering valuable insights into user's health status.
+Featuring a user-friendly interface, the application includes a menu with dedicated sections for a comprehensive user experience. 
+The "History" tab conveniently displays the 10 most recent BMI values, allowing users to track their progress over time. 
+Additionally, the "About Author" page provides insights into the creator behind this innovative tool.
+
 ViewModel class is used in this project.
