@@ -6,4 +6,4 @@ Featuring a user-friendly interface, the application includes a menu with dedica
 The "History" tab conveniently displays the 10 most recent BMI values, allowing users to track their progress over time. 
 Additionally, the "About Author" page provides insights into the creator behind this innovative tool.
 
-ViewModel class is used in this project.
+Technologies used: ViewModel class
