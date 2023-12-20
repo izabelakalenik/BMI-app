@@ -1,3 +1,4 @@
+# BMI app
 Project for a Mobile applications for Android platform course - 5th semester. 
 
 BMI Application is a tool designed to empower users in calculating their Body Mass Index (BMI) effortlessly, whether in metric or imperial units. 
